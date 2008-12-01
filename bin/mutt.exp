@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+set scrname [lindex $argv 0]
+spawn ssh w26
+expect password {
+    send "bbmzcTT1\n"
+}
+
+expect a22242 {
+    send "stty erase \n"
+    send "LANG=zh_CN.gbk LC_ALL=zh_CN.GBK exec mutt -F .muttrc.gbk\n"
+}
+interact

@@ -1,0 +1,22 @@
+#!/usr/bin/expect -f
+
+set scrname [lindex $argv 0]
+spawn ssh w26
+
+expect -re "authenticity|assword:" {
+    if ([string eq "$expect_out(0,string)" "authenticity"]) {
+        send "yes\n"
+        expect assword: {
+        }
+    }
+}
+
+send "bbmzcTT1\n"
+stty echo
+
+expect a22242 {
+    send "stty erase \n"
+    send "LANG=zh_CN.gbk LC_ALL=zh_CN.GBK exec myscr $scrname\n"
+}
+interact
+
