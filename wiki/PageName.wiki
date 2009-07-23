@@ -1,5 +1,5 @@
+#summary Win32 Registry Tools
 #labels Featured
-# Win32 Registry Tools #
 
 = Registry Grep =
 
