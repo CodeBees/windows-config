@@ -28,5 +28,4 @@ $regopen.py 'HKEY_CURRENT_USER\Software\JavaSoft\Prefs\org\antlr\works'
 }}}
 will open that key in regedit.exe.
 
-The code is at [https://windows-config.googlecode.com/svn/trunk/bin/windows/regopen.py
- here].
+The code is at [https://windows-config.googlecode.com/svn/trunk/bin/windows/regopen.py here].
