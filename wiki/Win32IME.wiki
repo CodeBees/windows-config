@@ -192,6 +192,7 @@ typedef struct tagINPUTCONTEXT {
 
 win32输入法编程的陷阱还是挺多的, 搞不好会很迷惑.
 
+  # 一定要用版本管理工具(废话), 但是用了版本管理工具还不一定够, 在前期开发的时候, 要时不时地重启一下机器, 有时候测着没问题, 重启一次就不行了. 如果改动量大的话就会不知道是哪个版本引进的问题. 
   # ime消息窗口的类名不能随便换. win32的IMM好像装载过一次以后就会把你这个输入法的各个窗口的类名给记下来, 你要是换了的话下次就装载不上了, 必须重启一次机器. 妈的发现这个问题当时浪费了我很多时间.
   # 某种情况下winlogon.exe不能被排除在外. 如果你的输入法开发的差不多了, 你把它设成默认的输入法, 准备以后一直用它了, 嗯, 用的好好的, 一重启, 嘿, 用不了了. 这是因为winlogon是你的第一个用户, 而这个进程好像比较特别, 如果它load这个默认输入法失败的话, windows就会认为这个输入法有问题. 所以你想把winlogon排除在外的话记得重启前要把另一个输入法换成默认的再重启. 
   # 出现以上两个问题时你也可以不重启, 只要把你的.dll换一个名字, 在注册表里换一个注册键.
@@ -204,9 +205,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\E0330804]
 "Ime File"="ywb.dll"
 "Layout File"="kbdus.dll"
-"Layout Text"="Chinese (Simplified) - SCIM-CS3"
+"Layout Text"="Chinese (Simplified) - YWB"
 }}}
 
-= 我的影舞笔的运行方法 =
+= 影舞笔的运行方法 =
 
-编译用VS2008, 同时还要求安装了python3.1, 安装路径必须是C:/python31, 同时你必须把代码co到Q:\gcode\scim-cs下, 如果没有Q盘可以用subst.exe挂一个. 当然也可以自己改一下源代码. 
+编译用VS2008, 同时还要求安装了python3.1, 安装路径必须是C:/python31, 同时你必须把代码co到Q:\gcode\scim-cs下, 如果没有Q:盘可以用subst.exe挂一个. 当然也可以自己改一下源代码. 
