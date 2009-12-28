@@ -1,2 +1,59 @@
 #summary 我的win32 输入法编程心得
 
+= 简介 =
+
+Win32下的输入法编程概括地来说就是要写一个DLL. 这个DLL要实现并在.def文件中指定输出M$指定的一些API. Win32在装载你的输入法DLL时会检查是不是每个API都能查询到, 如果不是的话, 这个输入法就不会被成功的装载.
+
+建议下载2600.1106版本的win32 DDK, 里面有区位输入法的源程序, 可以看看里面的wingb.def文件, 总共输出了将近20个API.
+
+{{{
+$cat wingb.def
+LIBRARY         WINGB
+
+EXPORTS
+                ImeConversionList
+                ImeConfigure
+                ImeDestroy
+                ImeEscape
+                ImeInquire
+                ImeProcessKey
+                ImeSelect
+                ImeSetActiveContext
+                ImeSetCompositionString
+                ImeToAsciiEx
+                NotifyIME
+
+                ImeRegisterWord
+                ImeUnregisterWord
+                ImeGetRegisterWordStyle
+                ImeEnumRegisterWord
+
+                UIWndProc
+                StatusWndProc
+                CompWndProc
+                CandWndProc
+}}}
+
+其中, 最后的4个分别是UI消息(伪)窗口, 状态栏窗口, 编辑栏窗口, 和候选词窗口的窗口回调函数. 在我写的影舞笔输入法里, 我把状态栏和候选词的窗口回调函数从.def文件里拿掉了, 也能成功load, 其他的API我试了几个, 拿掉了的话输入法就load不了了.
+
+UI消息窗口之所以称它为伪窗口, 因为这个窗口好像是个纯消息窗口, 没有图形. 它的WM_Paint等消息是从来不会被调用到的.
+
+这里面对一个输入法而言最重要的函数是ImeProcessKey和ImeToAsciiEx. 在输入法激活的状态下, 用户按的每一个键都会导致ImeProcessKey被调用, 如果这是一个本输入法感兴趣的键, 则应该在这个函数里返回真值, 接着win32的输入法管理器就会调用第二个函数, ImeToAsciiEx; 如果不感兴趣的话就返回假值, win32会自己处理这个按键.
+
+在ImeToAsciiEx里你可以做一些操作, 总的来说有以下几种: 
+
+# 显示/隐藏状态栏
+
+# 显示/隐藏编辑+候选词窗口
+
+# 输入当前的候选词
+
+# ...
+
+但是要注意的是, 大多的操作都不是在这个函数里直接执行的, 而是通过给win32发消息.
+
+其次比较重要的函数, 当然就是几个窗口的处理函数了, 你的输入法总得给人家显示候选词的吧:-)
+
+剩下的一些函数基本上不是那么重要, 比如输入法的配置, 是通过ImeConfigure这个API, 在里面应该弹出一个对话框来让用户配置, 这才称得上是&rdquo;用户友好&rdquo;, 我认为纯粹是吃力不讨好的活, 尤其是像咱们这样有点儿hacker精神的人, 什么对话框也比不上给我一个纯文本文件让我自己编辑来得方便. 这样的话我还可以把这个文件放到我自己的svn里面, 到了哪儿我都不需要重新配置我的输入法, 直接svn co就好了. 最烦的是一些把配置全都放到注册表里的程序, 对那些傻瓜用户是友好了, 对我们这样有点技术背景的用户, 真的是很操蛋的一个做法.
+
+还有一些我也没搞明白有什么用, 但是也不能拿掉它, 所以就都留着了.
