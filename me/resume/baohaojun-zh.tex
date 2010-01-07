@@ -7,7 +7,7 @@
 
 
     
-\author{Haojun Bao}
+\author{包昊军}
 
     
 \email{baohaojun@gmail.com}
@@ -25,108 +25,90 @@
 \CJKtilde
 \maketitle
 
-\section{Education}
+\section{教育背景}
 
-\affiliation[Bachelor of Arts in Control Theory and Engineering]
-            {Zhejiang University}
-            {September 1997-July 2001}
+\affiliation[本科, 控制理论与工程]
+            {浙江大学}
+            {1997年9月-2001年7月}
 
-\affiliation[Master of Science in Control Theory and Engineering]
-            {Institute of Automation, Chinese Academy of Sciences}
-            {September 2001-July 2004}
+\affiliation[硕士, 控制理论与工程]
+            {中科院自动化所}
+            {2001年9月-2004年7月}
 
-\section{Experience}
+\section{工作经验}
 
-\affiliation[Senior Software Engineer]
-            {Borqs (\url{http://www.borqs.com})}
-            {November 2008-present}
+\affiliation[高级软件工程师]
+            {播思通讯 (\url{http://www.borqs.com})}
+            {2008年11月至今}
 
 \begin{compactitem}
 
-	\item Worked with the Tools team of Borqs, a mobile device
-          software company that developped the OMS, based on Google
-          Android. \par
+	\item 播思是开发基于Google Android平台的OMS系统的手机软件公司, 我在其Tools组工作. \par
 
-	\item Created Borqs Engineering Tool in C++ (VC6+MFC). It
-          provides scriptable access to testing commands of the
-          phone. Main features include: batch testing, auto
-          connection, connecting through either usblan or ADB, phone
-          screen framebuffer capture. The GUI of this tool has a
-          keybinding that mimics Emacs/GNU readline, with a command
-          history like Bash. \par
+	\item 设计并实现 Borqs Engineering Tool (C++, VC6, MFC). 对手机
+          提供可脚本编程的测试功能. 主要功能包括: 批处理测试, 自动连接,
+          通过usblan或adb的连接, 手机屏幕抓图工具等. 此工具的图形界面提
+          供一个模仿Emacs/GNU readline的键绑定, 及历史命令机制.
 
-        \item Created fb2bmp in C (arm-linux-gcc). It captures the
-          phone frame buffer, and save it as a .bmp file. It's
-          integrated into the Borqs Engineering Tool. \par
 
-        \item Created Engineering Tool Library. So that our customers
-          can develop their own tools based on this library. \par
+        \item 设计并实现fb2bmp ( C, arm-linux-gcc). 从手机的frame buffer中截屏抓图, 并保存为.bmp文件. 集成在Borqs Engineering Tool中. 
 
-        \item Created Service Tool. It's a tool for the repair center
-          of Borqs partners. Based on Engineering Tool Library. \par
+        \item 实现Engineering Tool Library. 客户可以基于该工具库进行二次开发.
 
-        \item Created SerialPort Usblan Passthrough Tool in Python. It
-          provides access to phone internal UART through usblan. Open
-          source project ``com0com'' and ``PySerial'' is used. Has a
-          GUI implemented in PyQt. \par
+        \item 实现Service Tool. 基于Engineering Tool Library开发, 提供给客户的维修中心使用. 
 
-        \item Worked on Flashing Tool (VC++) and Release Tool (Bash
-          script + Python). Enable developper to flash software onto
-          the phone with ``one click'' away. Completely rewrote Flashing
-          Tool to fix its multithread bugs and provide more user
-          friendly usage.
+        \item 设计并实现SerialPort Usblan Passthrough Tool (Python). 一
+          个通过tcp/ip的虚拟串口工具, 提供对手机内部的串口设备的直接访
+          问, 方便调试. 其中使用了开源软件``com0com''和``PySerial'', 并用PyQt实现一个图形界面.
+
+        \item 开发烧机工具 (VC++)和打包工具 (Bash script + Python). 使
+          工程师可以更方便地把软件烧到手机上. 对烧机工具做了大量的重构,
+          以解决其中的一些多线程相关的bug, 从而使其具有连续烧机/并发烧
+          机等用户友好的功能.
       
 \end{compactitem}
 
-\affiliation[Software Engineer]
-            {Mobile Device/Global Software Group, Motorola \par}
-            {September 2005-September 2008}
+\affiliation[软件工程师]
+            {摩托罗拉, 移动设备部/全球软件中心}
+            {2005年9月-2008年9月}
 
 \begin{compactitem}
 
-	\item Worked on phone multimedia software autotesting tool development.
+	\item 手机多媒体软件自动调试工具开发
 
-        \item Worked on phone multimedia software development.
+        \item 手机多媒体软件开发
 
 \end{compactitem}
 
-\affiliation[Software Engineer]
-            {Qilin Software \par}
-            {October 2004-September 2005}
+\affiliation[软件工程师]
+            {麒麟软件}
+            {2004年10月-2005年9月}
 \begin{compactitem}
-  \item Worked on CRM software testing
+  \item 企业集成应用软件测试
 \end{compactitem}
 
-\affiliation[Open Source Project]
+\affiliation[开源软件项目]
             {Windows+Cygwin+Linux \par (\url{http://windows-config.googlecode.com})}
-            {May 2005-Now}
+            {2005年5月至今}
             
 \begin{compactitem}
-  \item Created ``scim-fcitx'' (C++, Linux), a GNU/Linux input method
-    based on SCIM and Fcitx. \par
+  \item 实现``scim-fcitx'' (C++, Linux), 一个GNU/Linux下的输入法, 基于scim和fcitx.
 
-  \item Created ``sdim'' (C++, Python, Win32), a Win32 input
-    method. First wrote it in C++ completely; then refactored it into
-    C++ + Python with a client/server model, to improve modularity and
-    debugging easiness. \par
+  \item 设计并实现``sdim'' (C++, Python, Win32), 一个Win32下的输入法.
+    最先全部用C++实现, 之后对其进行重构, 用C++和Python实现, 使用客户/服
+    务模型, 以提高模块化及便于调试.
 
-  \item Created ``personal windows manager'' (C++, Python), a win32
-    windows manager extension, inspired by Sawfish, BlackBox, BB4Win. \par
+  \item 实现窗口管理器(C++, Python), 一个win32下窗口管理的扩充, 受了GNU/Linux下Sawfish, BlackBox以及BB4Win的启发. 
 
-  \item Created ``regtools'' (Python, pywin32), tools to manipulate
-    win32 registry with regular expression search and replace. \par
+  \item 实现``regtools'' (Python, pywin32), 一个用正则表达式对win32注册表进行查找替换的工具. 
 
-  \item Created ``RunBhjRun'' (C++), a win32 ``run dialog''
-    replacement. Mimics Emacs key-binding, better completion, better
-    history. \par
+  \item 实现``RunBhjRun'' (C++), 一个win32下``run''对话框的升级版工具, 提供类Emacs的键绑定, 更好的补齐和历史命令机制.
 
-  \item Created ``grepall.py'', a Python script using ``find(1)'' and
-    ``grep(1)'', for easier and quicker source code browsing. \par
+  \item 实现``grepall.py'', 一个Python脚本, 使用``find(1)''和``grep(1)''程序, 对Emacs下的etags的补充, 以方便阅读源代码.
 
-  \item Created ``ImapMonitor'' (Python, PyQt), a script to monitor my
-    Email. Inspired by xmailbox.\par
+  \item 实现``ImapMonitor'' (Python, PyQt), 一个Imap邮箱监测器, 受xmailbox的启发.\par
 
-  \item Other small scripts/programs, all in \url{http://windows-config.googlecode.com}. \par
+  \item 其他一些较小的脚本/程序, 均放在\url{http://windows-config.googlecode.com}下用svn管理.
 
   
     
@@ -139,18 +121,13 @@
 
 \begin{compactitem}
 
-      \item Programming in languages including C++, C, Python, Bash, a little Perl and a little Emacs Lisp. \par
+      \item 编程语言: C++, C, Python, Bash, 一点Perl和一点Emacs Lisp. \par
 
       \item Emacs. \par
 
       \item GNU/Linux, Cygwin. \par
     
 \end{compactitem}
-
-\noindent 本常问问答集~(FAQ list)~是从一些经常被问到的问题及其适当的解
-答中，以方便的形式摘要而出的。跟上一版不同的是，其编排结构已彻底改变。
-\textbf{有关新结构的细节，可参考「如何阅读本问答集及了解其编排结构」该
-项中的说明。}
 
 \end{CJK*}
 \end{document}
