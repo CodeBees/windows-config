@@ -1,0 +1,326 @@
+#title [[http://steve.yegge.googlepages.com/tour-de-babel Tour De Babel]
+
+通天塔导游
+
+(译注: 圣经记载：在远古的时候，人类都使用一种语言，全世界的人决定一起造一座通天的塔，就是巴别塔，后来被上帝知道了，上帝就让人们使用不同的语言，这个塔就没能造起来。
+巴别塔不建自毁，与其说上帝的分化将人类的语言复杂化，不如说是人类自身心灵和谐不再的分崩离析。之所以后来有了翻译，不仅是为了加强人类之间的交流，更寄达了一种愿望，希望能以此消除人际的隔阂，获求来自心灵的和谐及慰藉。真正的译者，把握血脉，抚平创痕，通传天籁，开启心门。)
+
+ This is my whirlwind languages tour — the one I was going to write for the Amazon Developers Journal this month, but couldn't find a way to do it that was... presentable.
+
+这是我写的旋风式的编程语言简介 &ndash; 我本来为亚马逊开发者杂志本月的期刊写的, 但是发现我写的东西没法...见人 (译注: 因为有很多脏话).
+
+
+For one thing, I lapse occasionally into coarseness and profanity here, so it wasn't appropriate for an official-ish Amazon publication. Instead, I'm stuffing it into my blog, which nobody reads. Except for you. Yep, just you. Hiya.
+
+首先, 我偶尔一不小心口出脏话, 或者对上帝不恭的话, 所以对很官方很正式的亚马逊上发表是不合适的; 所以我就把它塞到我的博客里了, 我的博客反正没人看的. 除了你以外. 是的, 只有你会看, 你好啊.
+
+
+For another, it's really a work in progress, just a few snippets here and there, not polished at all. Another great reason to make it a blog entry. Doesn't have to be good, or complete. It's just what I've got today. Enjoy!
+
+其次, 这是一项进行中的工程, 现在只是东打一耙西搞一下, 还没有精加工过的. 又一个把它写到博客里的很大的理由. 不需要很好, 或很完整. 就是我今天想说的一些话. 请随便!
+
+
+My whirlwind tour will cover C, C++, Lisp, Java, Perl, (all languages we use at Amazon), Ruby (which I just plain like), and Python, which is in there because — well, no sense getting ahead of ourselves, now.
+
+我的旋风式简介会讲C, C++, Lisp, Java, Perl, (我们在亚马逊用到的所有语言), Ruby (我就是喜欢), 和Python, 把Python加进来是因为 &ndash; 好吧, 你看了就知道了, 现在我可不说. 
+
+
+= C =
+
+You just have to know C. Why? Because for all practical purposes, every computer in the world you'll ever use is a von Neumann machine, and C is a lightweight, expressive syntax for the von Neumann machine's capabilities.
+
+你必须懂C. 为哈? 因为出于所有现实的理由, 这个世界上你过去, 现在, 将来会用到的每一台计算机都是一台冯.诺曼机器, 而C是一种轻量级的, 很有表达力的语法, 能很好的展现冯.诺曼机器的能力.
+
+The von Neumann architecture is the standard computer architecture you use every day: a CPU, RAM, a disk, a bus. Multi-CPU doesn't really change it that much. The von Neumann machine is a convenient, cost-effective, 1950s realization of a Turing Machine, which is a famous abstract model for performing computations.
+
+冯.诺曼架构就是你每天都用的计算机的架构的标准: 一个CPU, 内存, 硬盘, 一条总线. 多核计算机并没有带来本质上的变化. 冯.诺曼机是一个很方便, 很便宜, 上世纪五十年代的实现图灵机的技术, 图灵机是执行计算的最知名的抽象模型. 
+
+There are other kinds of machines too. For instance, there are Lisp Machines, which are convenient 1950s realizations of Lisp, a programming language notation based on the lambda calculus, which is another model for performing computations. Unlike Turing machines, the lambda calculus can be read and written by humans. But the two models are equivalent in power. They both model precisely what computers are capable of.
+
+世上还有其他的计算的机器. 比如, Lisp机器, 是上世纪50年代对Lisp计算模型的实现. Lisp模型是基于lambda代数的一种计算语言表示法, 后者是与图灵机同构的一种模型. 不像图灵机, lambda代数能被人类读和写. 但是这二者是同等能力的. 它们同样精确的表示了计算机能干什么. 
+
+Lisp Machines aren't very common though, except at garage sales. von Neumann machines won the popularity race. There are various other kinds of computers, such as convenient realizations of neural networks or cellular automata, but they're nowhere as popular either, at least not yet.
+
+Lisp机现在不是很流行了, 除了在跳蚤市场里. 从谁更受欢迎来说, 冯.诺曼机器赢了. 还有一些其他的计算机, 比如神经网络计算机, 译者也不知道怎么翻的计算机(cellular automata), 但是这些都不够大众化, 至少现在是这样的. 
+
+So you have to know C.
+
+所以你必须知道C.
+
+You also have to know C because it's the language that Unix is written in, and happens also to be the language that Windows and virtually all other operating systems are written in, because they're OSes for von Neumann machines, so what else would you use? Anything significantly different from C is going to be too far removed from the actual capabilities of the hardware to perform well enough, at least for an OS — at least in the last century, which is when they were all written.
+
+还有一个你必须知道C的原因是, Unix是用C写的. 巧的是, Windows也是. 基本上所有的其他操作系统都是用C写的. 因为这些操作系统都是冯.诺曼机的操作系统, 你还能用别的吗? 任何跟C很不一样的东西都会跟硬件的实际能力相差太远而导致无法满足性能上的需要, 至少对一个操作系统来说是这样 &ndash; 至少在上个世纪是这样, 碰巧这些系统都是上个世纪的.
+
+You should also know Lisp. You don't have to use it for real work, although it comes in quite handy for lots of GNU applications. In particular, you should learn Scheme, which is a small, pure dialect of Lisp. The GNU version is called Guile.
+
+你还应该知道Lisp. 你不必用它来干实际工作, 虽然它在很多GNU的软件里都会很用得着. 特别是, 你应该学会Scheme, Lisp的一种小巧化的, 纯洁的方言. GNU的版本叫Guile.
+
+They teach Scheme at MIT and Berkeley to new students for a semester or two, and the students have absolutely no clue as to why they're learning this weird language. It's a lousy first language, to be honest, and probably a lousy second one too. You should learn it, eventually, and not as your first or second language.
+
+他们在麻省理工和加州伯克利教新学生一到两个学期的Scheme, 这些学生都对他们为哈要学这么奇怪的语言抓破脑袋. 实话实说, 作为第一门学习的语言, 这是一个很烂的选择, 第二门也是很烂. 你应该学会它, 最终, 但不是作为第一门或第二门语言. 
+
+It's hard, though. It's a big jump. It's not sufficient to learn how to write C-like programs in Lisp. That's pointless. C and Lisp stand at opposite ends of the spectrum; they're each great at what the other one sucks at.
+
+这是很难的哦. 这是很大的一步. 学会怎么用Lisp写出像C语言的程序是不够的, 那没有意义. C和Lisp一个就像红外线, 一个就像紫外线, 它们分布在光谱的最两端. 它俩一个牛逼的地方刚好是另一个傻逼了吧的地方. 
+
+If C is the closest language to modeling how computers work, Lisp is the closest to modeling how computation works. You don't need to know a lot of Lisp, really. Stick with Scheme, since it's the simplest and cleanest. Other Lisps have grown into big, complex programming environments, just like C++ and Java have, with libraries and tools and stuff. That, you don't need to know. But you should be able to write programs in Scheme. If you can make your way through all the exercises in The Little Schemer and The Seasoned Schemer, you'll know enough, I think.
+
+如果说, C是最靠近计算机是如何工作的语言模型, Lisp就是最能反映计算(注意, 这里没有了&rdquo;机&rdquo;吧)是如何工作的模型. 你不需要懂很多Lisp, 真的. 紧咬Scheme就哦了, 因为它是最简单最干净的. 其他的Lisp已经发展成了很大, 很复杂(很好很强大? 译者:-)的编程环境, 就像C++和Java, 要有很多库啊, 工具啊等等之类. 那些, 你不需要知道. 但是你应该能用Scheme写程序. 如果你能够做出The Little Schemer和The Seasoned Schemer这两本书里的所有习题, 你懂得就够多了, 我认为.
+
+But you choose a language for day-to-day programming based on its libraries, documentation, tools support, OS integration, resources, and a host of other things that have very little to do with how computers work, and a whole lot to do with how people work.
+
+但是对于你天天要做的编程工作, 你应该基于以下条款选择你的语言: 库, 文档, 工具支持, 操作系统集成, 资源, 和一堆其他的东西. 这些条款跟计算机如何工作关系很小, 但是跟人类如何工作关系甚大. 
+
+People still write stuff in straight C. Lots of stuff. You should know it!
+
+人们还在用很直白的C语言写东西. 很多东西. 你应该懂C!
+
+= C++ =
+
+C++ is the dumbest language on earth, in the very real sense of being the least sentient. It doesn't know about itself. It is not introspective. Neither is C, but C isn't "Object-Oriented", and object orientation is in no small measure about making your programs know about themselves. Objects are actors. So OO languages need to have runtime reflection and typing. C++ doesn't, not really, not that you'd ever use.
+
+C++地球上最蠢的语言. 从蠢这个字的真正意义上说, C++很无厘头. 它不知道自己是什么东西. 它没有内视(面向对象里的一个概念, 译者注). C也没有, 但是C不是&rdquo;面向对象&rdquo;的, 而面向对象很大程度上是关于要让你的程序知道它自己. 对象就像演员. 所以面向对象语言应该有运行时的自省机制, 知道自己是个什么类的对象. C++不是这样的, 真的, 你不会那样用它. 
+
+As for C: it's so easy to write a C compiler that you can build tools on top of C that act like introspection. C++, on the other hand, is essentially un-parseable, so if you want to write smart tools that can, for example, tell you the signatures of your virtual functions, or refactor your code for you, you're stuck using someone else's toolset, since you sure as heck aren't gonna parse it. And all the toolsets for parsing C++ out there just plain suck.
+
+关于C: 写一个C的编译器是那么的简单, 以至于你可以用C写一个关于C的工具, 用起来就像是有内省机制. 而C++呢, 基本上是不可解析的, 所以如果你想写一个很牛逼的工具用来&ndash;比如, 告诉你你的虚函数的原型, 或者帮你重构你的代码, 你将不得不依赖别人的工具集, 因为你自己在除非脑子进屎的情况下是根本不会去写一个C++的解析器的. 而市面上所有的C++的解析器都很傻逼. 
+
+C++ is dumb, and you can't write smart systems in a dumb language. Languages shape the world. Dumb languages make for dumb worlds.
+
+C++很蠢, 你不能用蠢语言创造一个好系统. 语言决定世界, 蠢语言决定蠢世界. 
+
+All of computing is based on abstractions. You build higher-level things on lower-level ones. You don't try to build a city out of molecules. Trying to use too low-level an abstraction gets you into trouble.
+
+所有的计算都基于抽象. 你用低级的东西创造出高级的东西. 但是你不能用分子创造出一个城市. 尝试使用太低级别的抽象只会给你带来麻烦. 
+
+We are in trouble.
+
+我们就惹上麻烦了 (是指亚马逊的员工, 还是所有C++的程序员? 我也不知道, 译者注).
+
+The biggest thing you can reasonably write in C is an operating system, and they're not very big, not really. They look big because of all their apps, but kernels are small.
+
+理智的情况下, 你用C写的最大的东东就是一个操作系统. 而操作系统其实不是很大的, 真的. 它们看起来很大, 但那是因为它们有很多应用软件, 操作系统本身的内核是蛮小的.
+
+The biggest thing you can write in C++ is... also an operating system. Well, maybe a little bigger. Let's say three times bigger. Or even ten times. But operating system kernels are at most, what, maybe a million lines of code? So I'd argue the biggest system you can reasonably write in C++ is maybe 10 million lines, and then it starts to break down and become this emergent thing that you have no hope of controlling, like the plant in Little Shop of Horrors. Feeeeeed meeeeeee...
+
+你用C++能写的最大的东东是...也是操作系统. 好吧, 或许稍微再大点儿. 让我们说, 再大三倍吧. 或者10倍吧. 但是操作系统内核最多也就, 那啥, 一百万行代码? 所以我说你能用C++写的最大的系统大概也就是一千万行代码吧, 再大的话就开始不行了, 这玩意儿你没法控制了, 就像恐怖片里的...
+
+If you can get it to compile by then, that is.
+
+我说的一千万行是指如果你那时候还能让你的系统编译通过的话.
+
+We have 50 million lines of C++ code. No, it's more than that now. I don't know what it is anymore. It was 50 million last Christmas, nine months ago, and was expanding at 8 million lines a quarter. The expansion rate was increasing as well. Ouch.
+
+我们(在亚马逊, 译者注)有五千万行C++代码. 不, 现在还要更多了. 我已经不知道有多少行了. 上个圣诞节是五千万行, 那是九个月前, 而它以每季度八百万行的规模增长. 增长率本身也增长, 妈呀. 
+
+Stuff takes forever to do around here. An Amazon engineer once described our code base as "a huge mountain of poop, the biggest mountain you've ever seen, and your job is to crawl into the very center of it, every time you need to fix something."
+
+我们想这个系统里干点啥好像要一万年. 一个亚马逊工程师有一次这样描述我们的代码库: &ldquo;一座很大的粑粑山, 你见过的最大的山, 每次你想修正一个bug, 你的工作就是爬到粑粑山的正中心去.&rdquo;
+
+That was four years ago, folks. That engineer has moved on to greener pastures. Too bad; he was really good.
+
+伙计们, 那哥们可是在四年前说的这话. 他现在已经到更环保绿色的牧场上去了. 真是太可惜了, 他可是个实实在在的高手啊(译者注, 是个挖粑粑山的高手?).
+
+It's all C++'s fault. Don't argue. It is. We're using the dumbest language in the world. That's kind of meta-dumb, don't you think?
+
+这都是C++的错. 别跟我争论. 就是的. 我们用的世上最蠢的语言. 这简直有点老板级的蠢, 你说呢? (译者注, meta在计算机术语里通常表示更高一个层次, 比如, meta-language, 比普通的language高一个层次, 意思是关于语言的语言. 哲学里应该会经常用到这个词. 我不懂哲学, 但是我觉得老板们总是比我们高一级, 所以meta-dump我就翻译成老板级的蠢喽. 你觉得贴切吗?:-)
+
+With that said, it is obviously possible to write nice C++ code, by which I mean, code that's mostly C, with some C++ features mixed in tastefully and minimally. But it almost never happens. C++ is a vast playground, and makes you feel smart when you know all of it, so you're always tempted to use all of it. But that's really, really hard to do well, because it's such a crap language to begin with. In the end, you just make a mess, even if you're good.
+
+说了以上这些难听的话, 话得说回来了. 用C++写出漂亮的代码显然是可以的, 我的意思是说, 这样的代码应该大部分还是C, 偶尔很有品味的, 很有节制的用一点C++. 但是这种代码几乎从来不会被写出来. C++是个很好玩的游乐场, 而如果你把它玩儿得门儿清的话你会觉得自己特牛, 所以你总是被诱惑把你知道的所有的东西都用上. 但是那是很难做好的, 因为从一开始这个语言就太狗屎了, 最终, 你会弄得一塌糊涂, 即使你很能干.
+
+I know, this is Heresy, with a capital-'H'. Whatever. I loved C++ in college, because it's all I knew. When I heard that my languages prof, Craig Chambers, absolutely detested C++, I thought: "Why? I like it just fine." And when I heard that the inventor of STL was on record as saying he hated OOP, I thought he was cracked. How could anyone hate OOP, especially the inventor of STL?
+
+我知道, 我说的都是异端邪说, 该被钉到十字架上的. 随便吧. 我在大学里的时候老喜欢C++了, 因为我那时候就只知道这一门语言. 当我听到我的语言教授, Craig Chambers, 绝对的厌憎C++, 我想: &ldquo;为啥呢? 我觉得它挺好的啊&rdquo;. 
+
+Familiarity breeds contempt in most cases, but not with computer languages. You have to become an expert with a better language before you can start to have contempt for the one you're most familiar with.
+
+So if you don't like what I'm saying about about C++, go become an expert at a better language (I recommend Lisp), and then you'll be armed to disagree with me. You won't, though. I'll have tricked you. You won't like C++ anymore, and you might be irked that I tricked you into disliking your ex-favorite language. So maybe you'd better just forget about all this. C++ is great. Really. It's just ducky. Forget what I said about it. It's fine.
+Lisp
+
+(I'm betting this next section will astonish you, even if you've been here a while.)
+
+When Amazon got its start, we had brilliant engineers. I didn't know all of them, but I knew some of them.
+
+Examples? Shel Kaphan. Brilliant. Greg Linden. Brilliant. Eric Benson. Independently famous in his own right, before he ever even came to Amazon. Also brilliant.
+
+They wrote the Obidos webserver. Obidos made Amazon successful. It was only later that poop-making engineers and web devs, frontend folks mostly — schedule-driven people who could make their managers happy by delivering crap fast — it was only later that these people made Obidos bad. Clogged the river, so to speak. But Obidos was a key cornerstone of Amazon's initial success.
+
+The original brilliant guys and gals here only allowed two languages in Amazon's hallowed source repository: C and Lisp.
+
+Go figure.
+
+They all used Emacs, of course. Hell, Eric Benson was one of the authors of XEmacs1. All of the greatest engineers in the world use Emacs. The world-changer types. Not the great gal in the cube next to you. Not Fred, the amazing guy down the hall. I'm talking about the greatest software developers of our profession, the ones who changed the face of the industry. The James Goslings, the Donald Knuths, the Paul Grahams2, the Jamie Zawinskis, the Eric Bensons. Real engineers use Emacs. You have to be way smart to use it well, and it makes you incredibly powerful if you can master it. Go look over Paul Nordstrom's shoulder while he works sometime, if you don't believe me. It's a real eye-opener for someone who's used Visual Blub .NET-like IDEs their whole career.
+
+Emacs is the 100-year editor.
+
+Shel, Eric, Greg, and others like them that I wasn't fortunate enough to work with directly: they didn't allow C++ here, and they didn't allow Perl. (Or Java, for that matter). They knew better.
+
+Now C++, Java and Perl are all we write in. The elders have moved on to greener pastures too.
+
+Shel wrote Mailman in C, and Customer Service wrapped it in Lisp. Emacs-Lisp. You don't know what Mailman is. Not unless you're a longtime Amazon employee, probably non-technical, and you've had to make our customers happy. Not indirectly, because some bullshit feature you wrote broke (because it was in C++) and pissed off our customers, so you had to go and fix it to restore happiness. No, I mean directly; i.e., you had to talk to them. Our lovely, illiterate, eloquent, well-meaning, hopeful, confused, helpful, angry, happy customers, the real ones, the ones buying stuff from us, our customers. Then you know Mailman.
+
+Mailman was the Customer Service customer-email processing application for ... four, five years? A long time, anyway. It was written in Emacs. Everyone loved it.
+
+People still love it. To this very day, I still have to listen to long stories from our non-technical folks about how much they miss Mailman. I'm not shitting you. Last Christmas I was at an Amazon party, some party I have no idea how I got invited to, filled with business people, all of them much prettier and more charming than me and the folks I work with here in the Furnace, the Boiler Room of Amazon. Four young women found out I was in Customer Service, cornered me, and talked for fifteen minutes about how much they missed Mailman and Emacs, and how Arizona (the JSP replacement we'd spent years developing) still just wasn't doing it for them.
+
+It was truly surreal. I think they may have spiked the eggnog.
+
+Shel's a genius. Emacs is a genius. Even non-technical people love Emacs. I'm typing in Emacs right now. I'd never voluntarily type anywhere else. It's more than just a productivity boost from having great typing shortcuts and text-editing features found nowhere else on the planet. I type 130 to 140 WPM, error-free, in Emacs, when I'm doing free-form text. I've timed it, with a typing-test Emacs application I wrote. But it's more than that.
+
+Emacs has the Quality Without a Name.
+
+We retired Mailman. That's because we have the Quality With a Name — namely, Suckiness. We suck. We couldn't find anyone who was good enough at Emacs-Lisp to make it work. Nowadays it would be easy; Amazon's filled up with Emacs Lisp hackers, but back then, CS Apps couldn't get the time of day from anyone, so they did what they could with what they had, and there weren't enough Emacs-Lisp folks. For a while, they even had Bob Glickstein on contract, the guy who wrote the O'Reilly "giraffe" book Writing Gnu Emacs Extensions, sitting there writing Gnu Emacs Extensions for Mailman in this little office in the Securities building.
+
+CS Apps was Amazon's first 2-pizza team, you know. They're completely autonomous — then and now. Nobody talks to them, nobody helps them, they build everything themselves. They don't have web devs, they don't have support engineers, they don't have squat, except for rock-solid engineers and a mentoring culture. And that's all they've ever needed.
+
+But they had to retire Mailman. Alas. Alackaday. And I still get to hear about how much people miss it. At parties, even.
+
+I think there may still be more Lisp hackers, per capita, in CS Apps than in any other group at Amazon. Not that they get to use it much, but as Eric Raymond said, even if you don't program in it much, learning Lisp will be a profound experience that will make you a better engineer for the rest of your life.
+
+Religion isn't the opiate of the masses anymore, Karl. IDEs are.
+Java
+
+Java is simultaneously the best and the worst thing that has happened to computing in the past 10 years.
+
+On the one hand, Java frees you up from many mundane and error-prone details of C++ coding. No more bounds errors, no more core dumps. Exceptions thrown point you to the exact line of code that erred, and are right 99% of the time. Objects print themselves intelligently on demand. Etc., etc.
+
+On the other hand, in addition to being a language, a virtual machine, a huge set of class libraries, a security model, and a portable bytecode format, Java is a religion. So you can't trust anyone who loves it too much. It's a tricky business to hire good Java programmers.
+
+But Java really has been a big step forward for software engineering in general.
+
+Going from C++ to Java isn't just changing syntax. It's a shocking paradigm shift that takes a while to sink in. It's like suddenly getting your own Executive Assistant. You know how VPs always seem to have all this time to be in meetings, and know how the company's running, and write cool documents, and stuff like that? VPs tend to forget that they're actually TWO full-time people: their self and their EA. Having an EA frees you up to think about the problems you need to solve; not having one forces you to spend half your time on mundane tasks. Switching to Java turns you into two programmers — one taking care of all this stuff that you no longer have to think much about, and another one focused on the problem domain. It's a staggering difference, and one you can get used to in a real hurry.
+
+As Jamie Zawinski said in his famous "java sucks" article: "First the good stuff: Java doesn't have free(). I have to admit right off that, after that, all else is gravy. That one point makes me able to forgive just about anything else, no matter how egregious. Given this one point, everything else in this document fades nearly into insignificance."
+
+Jamie's article was written in 1997, which in Java years is a long time ago, and Java has improved a lot since he wrote it; some of the things he complains about are even fixed now.
+
+Most of them aren't. Java does still kind of suck, as a language. But as Jamie points out, it's "the best language going today, which is to say, it's the marginally acceptable one among the set of complete bagbiting loser languages that we have to work with out here in the real world."
+
+Really, you should read it.
+
+Java is truly wonderful along almost every dimension except for the language itself, which is mostly what JWZ was griping about. But that's a lot to gripe about. Libraries can only get you so far if your language sucks. Trust me: you may know many, many things better than I do, but I know that libraries can't really save a sucky language. Five years of assembly-language hell at Geoworks taught me that.
+
+Compared to C++, Java as a language is about even. Well, scratch that, it's a lot better, because it has strings, oh man, how can you use a language with lousy string support.
+
+But Java's missing some nice features from C++, such as pass-by-reference(-to-stack-object), typedefs, macros, and operator overloading. Stuff that comes in handy now and again.
+
+Oh, and multiple inheritance, which now I've come to appreciate in my old age. If you think my Opinionated Elf was a good counterpoint to polymorphism dogma, I've got several brilliant examples of why you need multiple inheritance, or at least Ruby-style mixins or automatic delegation. Ask me about the Glowing Sword or Cloak of Thieving sometime. Interfaces suck.
+
+Gosling even said, a few years ago, that if he had to do it all over again, he wouldn't have used interfaces.
+
+But that's just exactly what the problem with Java is. When James said that, people were shocked. I could feel the shock waves, could feel the marketing and legal folks at Sun maneuvering to hush him up, brush it off, say it wasn't so.
+
+The problem with Java is that people are blinded by the marketing hype. That's the problem with C++, with Perl, with any language that's popular, and it's a serious one, because languages can't become popular without hype. So if the language designer suggests innocently that the language might not have been designed perfectly, it's time to shoot the language designer full of horse tranquilizers and shut down the conference.
+
+Languages need hype to survive; I just wish people didn't have to be blinded by it.
+
+I drank the OOP Kool-Aid, I regurgitated the hype myself. When I started at Amazon, I could recite for you all the incantations, psalms, and voodoo chants that I'd learned, all in lieu of intelligence or experience, the ones that told me Multiple Inheritance is Evil 'cuz Everyone Says So, and Operator Overloading Is Evil, and so on. I even vaguely sort of knew why, but not really. Since then I've come to realize that it's not MI that sucks, it's developers who suck. I sucked, and I still do, although hopefully less every year.
+
+I had an interview candidate last week tell me that MI is Evil because, for instance, you could make a Human class that multiply-inherits from Head, Arm, Leg, and Torso. He was both right and wrong. That MI situation was evil, sure, but it was all him. Stupid from a distance, evil if he'd made it in through the front door.
+
+Bad developers, who constitute the majority of all developers worldwide, can write bad code in any language you throw at them.
+
+That said, though, MI is no picnic; mixins seem to be a better solution, but nobody has solved the problem perfectly yet. But I'll still take Java over C++, even without MI, because I know that no matter how good my intentions are, I will at some point be surrounded by people who don't know how to code, and they will do far less damage with Java than with C++.
+
+Besides, there's way more to Java than the core language. And even the language is evolving, albeit glacially, so there's hope. It's what we should be using at Amazon.
+
+You just have to be careful, because as with any other language, you can easily find people who know a lot about the language environment, and very little about taste, computing, or anything else that's important.
+
+When in doubt, hire Java programmers who are polyglots, who detest large spongy frameworks like J2EE and EJB, and who use Emacs. All good rules of thumb.
+
+Perl
+
+Perl. Where to start?
+
+Perl is an old friend. Perl and I go way back. I started writing Perl stuff in maybe 1995, and it's served me well for nearly a decade.
+
+It's like that old bicycle you've put 100k or 200k miles on, and you'll always have a warm fuzzy spot for it, even though you've since moved on to a more modern bike that weighs 5 lbs and doesn't make your ass hurt so much.
+
+Perl is popular for three reasons:
+
+   1.
+
+      You can get stuff done really fast in Perl, which is what really matters, in the end.
+   2.
+
+      Perl has the best marketing in the world. You could write a book about how brilliant their marketing is. Sun has marketed Java with money, and Perl is almost keeping up, popularity-wise, purely on the on sheer marketing brilliance of Larry Wall and his buddies. Folks at Harvard Business School should study Perl's marketing. It's astonishing.
+   3.
+
+      Until roughly, oh, now, it had no real competitors.
+
+There are "better" languages than Perl — hell, there are lots of them, if you define "better" as "not being insane". Lisp, Smalltalk, Python, gosh, I could probably name 20 or 30 languages that are "better" than Perl, inasmuch as they don't look like that Sperm Whale that exploded in the streets of Taiwan over the summer. Whale guts everywhere, covering cars, motorcycles, pedestrians. That's Perl. It's charming, really.
+
+But Perl has many, many things going for it that, until recently, no other language had, and they compensated for its exo-intestinal qualities. You can make all sorts of useful things out of exploded whale, including perfume. It's quite useful. And so is Perl.
+
+While all those other languages (Lisp and Smalltalk being particularly noteworthy offenders) tried to pretend that operating systems don't exist, and that lists (for Lisp) or objects (for Smalltalk) are the be-all, end-all of getting shit done, Perl did exactly the opposite. Larry said: Unix and string processing are the be-all, end-all of getting shit done.
+
+And for many tasks, he was absolutely right. So Perl is better at Unix integration and string processing than any language on the planet, save one, and that one only arrived on the scene recently, from the land of Godzilla. I'll get to that one later.
+
+Sadly, Larry focused sooooo hard on Unix integration and string processing that he totally forgot about lists and objects until it was far too late to implement them properly. In fact, a few key mistakes he made early on in Perl's... well, I hesitate to use the word "design" for whale guts, but let's call it Perl's "lifecycle" — those mistakes made it so hard to do lists and objects correctly that Perl has evolved into a genuine Rube Goldberg machine, at least if you want to use lists or objects.
+
+Lists and objects are pretty farging important too, Larry!
+
+Perl can't do lists because Larry made the tragically stupid decision early on to flatten them automatically. So (1, 2, (3, 4)) magically becomes (1, 2, 3, 4). Not that you ever want it to work this way. But Larry happened to be working on some problem for which it was convenient on that particular day, and Perl's data structures have been pure exploded whale ever since.
+
+Now you can't read a book or tutorial or PowerPoint on Perl without spending at least a third of your time learning about "references", which are Larry's pathetic, broken, Goldbergian fix for his list-flattening insanity. But Perl's marketing is so incredibly good that it makes you feel as if references are the best thing that ever happened to you. You can take a reference to anything! It's fun! Smells good, too!
+
+Perl can't do objects because Larry never reeeeally believed in them. Maybe that's OK; I'm still not quite sure if I believe in them either. But then why did he try adding them? Perl's OO is a halfhearted add-on that never caught on with the Perl community. It's just not as inspired as the string-processing or Unix integration stuff.
+
+And of course, Perl has plenty of other crackpot design features. Take its "contexts", for instance, which are a horrid outgrowth of Larry's comical decision to have N variable namespaces, dereferenced by sigils, which he sort of copied from shell-script. In Perl, every operator, every function, every operation in the language behaves randomly in one of six different ways, depending on the current "context". There are no rules or heuristics governing how a particular operation will behave in a given context. You just have to commit it all to memory.
+
+Need an example? Here's one: accessing a hash in a scalar context gives you a string containing a fraction whose numerator is the number of allocated keys, and the denominator is the number of buckets. Whale guts, I'm telling you.
+
+Like I said, though — until recently, nothing could get the job done like Perl could.
+Ruby
+
+Every 15 years or so, languages are replaced with better ones. C was replaced by C++, at least for large-scale application development by people who needed performance but desperately wanted data types too. C++ is being replaced by Java, and Java will doubtless be replaced with something better in seven years — well, seven years after it finishes replacing C++, which evidently hasn't fully happened yet, mostly because Microsoft was able to stall it before it became ubiquitous on the desktop. But for server-side applications, C++ is basically on its way out.
+
+Perl will be gone soon, too. That's because a new language called Ruby has finally been translated into English. Yep, it was invented in Japan, of all places — everyone else was as surprised as you are, since Japan's known for its hardware and manufacturing, but not for its software development. Why, is anyone's guess, but I'm thinking it's the whole typing thing; I just can't imagine they were able to type fast enough before, what with having an alphabet with ten thousand characters in it. But Emacs got multibyte support a few years ago, so I can imagine they're pretty dang fast with it now. (And yes, they use Emacs — in fact Japanese folks did the majority of the Mule [multibyte] support for Emacs, and it's rock-solid.)
+
+Anyway, Ruby stole everything good from Perl; in fact, Matz, Ruby's author (Yukihiro Matsumoto, if I recall correctly, but he goes by "Matz"), feels he may have stolen a little too much from Perl, and got some whale guts on his shoes. But only a little.
+
+For the most part, Ruby took Perl's string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl. And that's a great start, especially if you don't take the Rest of Perl.
+
+But then Matz took the best of list processing from Lisp, and the best of OO from Smalltalk and other languages, and the best of iterators from CLU, and pretty much the best of everything from everyone.
+
+And he somehow made it all work together so well that you don't even notice that it has all that stuff. I learned Ruby faster than any other language, out of maybe 30 or 40 total; it took me about 3 days before I was more comfortable using Ruby than I was in Perl, after eight years of Perl hacking. It's so consistent that you start being able to guess how things will work, and you're right most of the time. It's beautiful. And fun. And practical.
+
+If languages are bicycles, then Awk is a pink kiddie bike with a white basket and streamers coming off the handlebars, Perl is a beach cruiser (remember how cool they were? Gosh.) and Ruby is a $7,500 titanium mountain bike. The leap from Perl to Ruby is as significant as the leap from C++ to Java, but without any of the downsides, because Ruby's essentially a proper superset of Perl's functionality, whereas Java took some things away that people missed, and didn't offer real replacements for them.
+
+I'll write more about Ruby sometime. I need to be inspired first. Read Why the Lucky Stiff's (poignant) guide to Ruby. That is an inspired piece of work. Really. Read it. It's amazing. I don't understand the kind of mind that could produce it, but it's funny, and poignant, and all about Ruby. Sort of. You'll see.
+
+Python
+
+Well gosh, what about Python, a nice language that has patiently been waiting in the wings for all these years? The Python community has long been the refuge for folks who finally took the red pill and woke up from the Perl Matrix.
+
+Well, they're just like the Smalltalk folks, who waited forever to replace C++, and then Java came along and screwed them royally, and permanently. Oops. Ruby's doing exactly that to Python, right now, today. Practically overnight.
+
+Python would have taken over the world, but it has two fatal flaws: the whitespace thing, and the permafrost thing.
+
+The whitespace thing is simply that Python uses indentation to determine block nesting. It forces you to indent everything a certain way, and they do this so that everyone's code will look the same. A surprising number of programmers hate this, because it feels to them like their freedom is being taken away; it feels as if Python is trampling their constitutional right to use shotgun formatting and obfuscated one-liners.3
+
+Python's author, Guido Van Rossum, also made some boneheaded technical blunders early on — none quite as extravagant as Larry's blunders, but a few were real doozies nonetheless. For instance, Python originally had no lexical scoping. But it didn't have dynamic scoping either, and dynamic scoping may have its share of problems, but it at least sort of works. Python had NOTHING except for global and local (function) scope, so even though it had a "real" OO system, classes couldn't even access their own damned instance variables. You have to pass a "self" parameter to EVERY instance method and then get to your instance data by accessing it through self. So everything in Python is self, selfself, selfselfself, selfSELFselfSELF__SELF__, and it drives you frigging nuts, even if you don't mind the whitespace thing.
+
+Etc.
+
+But in my opinion, it's really the frost thing that killed Python, and has prevented it from ever achieving its wish to be the premier scripting language, or the premier anything language, for that matter. Heck, people still use Tcl as an embedded interpreter, even though Python is far superior to Tcl in every conceivable way — except, that is, for the frost thing.
+
+What's the frost thing, you ask? Well, I used to have a lot of exceptionally mean stuff written here, but since Python's actually quite pleasant to work with (if you can overlook its warts), I no longer think it's such a great idea to bash on Pythonistas. The "frost thing" is just that they used to have a tendency to be a bit, well, frosty. Why?
+
+Because they were so tired of hearing about the whitespace thing!
+
+I think that's why Python never reached Perl's level of popularity, but maybe I'm just imagining things.
+Coda
+
+That was the ADJ article I really wanted to write. Or at least something like it. For some reason, though, my true feelings only seem to come out during insomniac attacks between 3am and 6am. Time for bed! 2 hours 'til my next meeting.
+
+(Published September 2004. Minor updates on 3/28/2006)
+
+Notes
+
+1 Eric tells me it was actually almost all Jamie Zawinski, when they worked at Lucid together.
+
+2 It's been pointed out many times since I wrote this that Paul Graham actually uses vi. Go figure!
+
+3 For the record, I personally don't mind the whitespace thing at all. I think it's silly to dislike Python for that reason. What I'm saying is that a surprising percentage of *other* programmers hate it.
