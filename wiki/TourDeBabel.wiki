@@ -53,7 +53,7 @@ You also have to know C because it's the language that Unix is written in, and h
 
 You should also know Lisp. You don't have to use it for real work, although it comes in quite handy for lots of GNU applications. In particular, you should learn Scheme, which is a small, pure dialect of Lisp. The GNU version is called Guile.
 
-你还应该知道Lisp. 你不必用它来干实际工作, 虽然它在很多GNU的软件里都会很用得着. 特别是, 你应该学会Scheme, Lisp的一种小巧化的, 纯洁的方言. GNU的版本叫Guile.
+你还应该知道Lisp. 你不必用它来干实际工作, 虽然它在很多GNU的软件里都会很用得着. 尤其是, 你应该学会Scheme, Lisp的一种小巧化的, 纯洁的方言. GNU的版本叫Guile.
 
 They teach Scheme at MIT and Berkeley to new students for a semester or two, and the students have absolutely no clue as to why they're learning this weird language. It's a lousy first language, to be honest, and probably a lousy second one too. You should learn it, eventually, and not as your first or second language.
 
@@ -131,65 +131,124 @@ With that said, it is obviously possible to write nice C++ code, by which I mean
 
 I know, this is Heresy, with a capital-'H'. Whatever. I loved C++ in college, because it's all I knew. When I heard that my languages prof, Craig Chambers, absolutely detested C++, I thought: "Why? I like it just fine." And when I heard that the inventor of STL was on record as saying he hated OOP, I thought he was cracked. How could anyone hate OOP, especially the inventor of STL?
 
-我知道, 我说的都是异端邪说, 该被钉到十字架上的. 随便吧. 我在大学里的时候老喜欢C++了, 因为我那时候就只知道这一门语言. 当我听到我的语言教授, Craig Chambers, 绝对的厌憎C++, 我想: &ldquo;为啥呢? 我觉得它挺好的啊&rdquo;. 
+我知道, 我说的都是异端邪说, 该被钉到十字架上的. 随便吧. 我在大学里的时候老喜欢C++了, 因为我那时候就只知道这一门语言. 当我听到我的语言教授, Craig Chambers, 绝对的厌憎C++, 我想: &ldquo;为啥呢? 我觉得它挺好的啊&rdquo;. 而当我听到STL(标准模板库)的发明者被采访时说他恨OOP(面向对象编程)时, 我更是认为他肯定是磕药了. 怎么会有人恨OOP呢, 而这个人竟然还是STL的发明者? 
 
 Familiarity breeds contempt in most cases, but not with computer languages. You have to become an expert with a better language before you can start to have contempt for the one you're most familiar with.
 
+亲不敬, 熟生厌(语出圣经, 译者注). 说的是在大多数情况下, 跟一件事物熟悉了之后你就失去对它的膜拜尊敬了; 在计算机语言里情况不是这样的. 光对一门语言熟悉不会导致你看轻这门语言. 你必须成为另一门更优秀的语言的专家(才能让你明白原来那门语言有多么多的问题).
+
 So if you don't like what I'm saying about about C++, go become an expert at a better language (I recommend Lisp), and then you'll be armed to disagree with me. You won't, though. I'll have tricked you. You won't like C++ anymore, and you might be irked that I tricked you into disliking your ex-favorite language. So maybe you'd better just forget about all this. C++ is great. Really. It's just ducky. Forget what I said about it. It's fine.
-Lisp
+
+
+所以如果你不喜欢我针对C++大放厥词, 请你去学另一门语言并成为一个专家(我推荐Lisp), 只有那时你才有足够的武器与我争论. 然而, 那时你将不会跟我争了. 你上了我的当了. 你也会跟我一样变得不喜欢C++了, 你或许会觉得我这个人很恶心, 把你骗得不喜欢自己曾经的最爱了. 所以或许你应该把我说的一切都忘了. C++挺好的其实, 真的. 它就是很棒棒(译者注, 作者在这里用了ducky, 这是一个女性喜欢用的夸某物好的词, 近来也为玻璃们喜爱). 忘了我说的话. C++不错的.
+
+= Lisp =
 
 (I'm betting this next section will astonish you, even if you've been here a while.)
 
+(我打赌这一节会让你觉得惊讶, 即使你已经关注我的博客有一阵了 (译者注, 作者也可能是说, 即使你成为亚马逊的员工有一阵了).)
+
 When Amazon got its start, we had brilliant engineers. I didn't know all of them, but I knew some of them.
+
+亚马逊创业之初, 我们有很多明星级的工程师. 我不认识他们所有人, 但是我认识几个. 
 
 Examples? Shel Kaphan. Brilliant. Greg Linden. Brilliant. Eric Benson. Independently famous in his own right, before he ever even came to Amazon. Also brilliant.
 
+比如? Shel Kaphan. 大拿. Greg Linden. 大拿. Eric Benson. 即使在他加入亚马逊之前就已经有自己响亮的名气了. 也是大拿. 
+
 They wrote the Obidos webserver. Obidos made Amazon successful. It was only later that poop-making engineers and web devs, frontend folks mostly — schedule-driven people who could make their managers happy by delivering crap fast — it was only later that these people made Obidos bad. Clogged the river, so to speak. But Obidos was a key cornerstone of Amazon's initial success.
+
+他们写了Obidos服务器. 是Obidos让亚马逊成功的. 只是后来那些生产大便很拿手的工程师, 网页开发者, 搞前端的人&ndash;这些人因为生产大便很拿手而总是能让经理们满意&ndash;只是在后来这些人把Obidos搞糟了. (他们的大便)把整条河都堵了, 打个比方说的话. 但是Obidos是亚马逊最初的成功的一块关键的基石. 
 
 The original brilliant guys and gals here only allowed two languages in Amazon's hallowed source repository: C and Lisp.
 
+这些最早的牛人们在亚马逊神圣的代码库里只允许两种语言: C 和 Lisp.
+
 Go figure.
+
+你自己去想吧. 
 
 They all used Emacs, of course. Hell, Eric Benson was one of the authors of XEmacs1. All of the greatest engineers in the world use Emacs. The world-changer types. Not the great gal in the cube next to you. Not Fred, the amazing guy down the hall. I'm talking about the greatest software developers of our profession, the ones who changed the face of the industry. The James Goslings, the Donald Knuths, the Paul Grahams2, the Jamie Zawinskis, the Eric Bensons. Real engineers use Emacs. You have to be way smart to use it well, and it makes you incredibly powerful if you can master it. Go look over Paul Nordstrom's shoulder while he works sometime, if you don't believe me. It's a real eye-opener for someone who's used Visual Blub .NET-like IDEs their whole career.
 
+当然, 他们所有人都使用Emacs. 靠, Eric Benson是XEmacs的作者之一. 这个世界上所有伟大的工程师都在用Emacs. 那种世界因你而不同级别的伟大. 不是坐在你旁边的格子里的那哥们那种伟大. 也不是Fred, 走廊尽头那哥们. 我说的是我们这个行业里最伟大的软件开发者, 那些能改变这个工业的面貌的人. 像James Gosling们(Java语言设计者), Donald Knuth们(这个人没有听说过的话赶紧改行吧, 别搞计算机了), Paul Graham们, Jamie Zawinski们, Eric Benson们. 真正的工程师用Emacs. 你必须很有点聪明才能把Emacs用好, 而如果你能成为一个Emacs大师的话它会给你难以置信的牛力. 有机会的话你应该站到Paul Nordstrom的肩后看看他是怎么工作的, 如果你不相信我的话. 对那些一辈子都在用烂Visual.Net之类的集成开发环境的人来说, 一定会大开眼界的.
+
 Emacs is the 100-year editor.
+
+Emacs是那种你可以用100年的编辑器. 
 
 Shel, Eric, Greg, and others like them that I wasn't fortunate enough to work with directly: they didn't allow C++ here, and they didn't allow Perl. (Or Java, for that matter). They knew better.
 
+Shel, Eric, Greg, 和其他像他们那样的人, 我没有足够幸运能跟他们直接一起工作: 他们禁止在这里使用C++, 他们禁止使用Perl. (或者Java, 为完整起见). 他们是明白人.
+
 Now C++, Java and Perl are all we write in. The elders have moved on to greener pastures too.
+
+现在我们都在用C++, Java和Perl了, 所有的代码都用这些语言. 我们的前辈们已经到更环保的牧场上去了 (指没有太多大便的牧场, 译者注).
 
 Shel wrote Mailman in C, and Customer Service wrapped it in Lisp. Emacs-Lisp. You don't know what Mailman is. Not unless you're a longtime Amazon employee, probably non-technical, and you've had to make our customers happy. Not indirectly, because some bullshit feature you wrote broke (because it was in C++) and pissed off our customers, so you had to go and fix it to restore happiness. No, I mean directly; i.e., you had to talk to them. Our lovely, illiterate, eloquent, well-meaning, hopeful, confused, helpful, angry, happy customers, the real ones, the ones buying stuff from us, our customers. Then you know Mailman.
 
+Shel用C写了Mailman, 客服部的人把它用Lisp封装了一下. Emacs-Lisp. 你不需要知道Mailman是什么东西. 除非你是个Amazon的老员工, 或许不是搞技术的, 而且你曾经不得不让客户哈皮 (只有在这种情况下你才需要知道Mailman, 译者注). 不是间接的, 因为你用C++写的一个狗屎功能跑不起来了, 让客户很生气, 于是你不得不去搞定它以恢复客户的哈皮度. 不, 我是说直接的, 意思是, 你必须跟他们聊. 我们可爱的, 不识字的, 呱呱其谈的, 心地善良的, 充满希望的, 困惑的, 能帮点小忙的, 愤怒的, 哈皮的客户们, 真正的客户们, 那些从咱们这里买东西的人, 我们的客户们. (如果你必须跟他们打交道的话, )那你就会知道Mailman这个东西. 
+
 Mailman was the Customer Service customer-email processing application for ... four, five years? A long time, anyway. It was written in Emacs. Everyone loved it.
+
+Mailman是客服部的客户电子邮件处理软件, 我们用了它有...四, 五年? 反正是很长时间. 它是用Emacs写的, 所有人都爱死它了.
 
 People still love it. To this very day, I still have to listen to long stories from our non-technical folks about how much they miss Mailman. I'm not shitting you. Last Christmas I was at an Amazon party, some party I have no idea how I got invited to, filled with business people, all of them much prettier and more charming than me and the folks I work with here in the Furnace, the Boiler Room of Amazon. Four young women found out I was in Customer Service, cornered me, and talked for fifteen minutes about how much they missed Mailman and Emacs, and how Arizona (the JSP replacement we'd spent years developing) still just wasn't doing it for them.
 
+人们现在还很爱它. 直到今天, 我依旧不得不听我们一些非技术员工跟我长篇大论的叨叨他们是多么的怀念Mailman. 我可绝不是满嘴喷粪. 上个圣诞节我参加了一个Amazon的派对, 一个我不知道自己怎么会被邀请的派对, 里面全是些西装笔挺的商务人士, 谁都长得比我帅, 比我光鲜. 以及一些我在公司里曾经打过交道的人(这句不知道怎么译). 四个美女认出了我是在客服部里干的, 把我包围了, 跟我说了十五分钟她们是多么的怀念Mailman和Emacs, 而现在的亚马逊(我们用JSP花了好多年准备换掉Mailman的那一套软件)是怎么的不能满足她们, 让她们觉得跟以前一样爽.
+
 It was truly surreal. I think they may have spiked the eggnog.
+
+这一切都太梦幻了, 我觉得她们可能是喝多了.
 
 Shel's a genius. Emacs is a genius. Even non-technical people love Emacs. I'm typing in Emacs right now. I'd never voluntarily type anywhere else. It's more than just a productivity boost from having great typing shortcuts and text-editing features found nowhere else on the planet. I type 130 to 140 WPM, error-free, in Emacs, when I'm doing free-form text. I've timed it, with a typing-test Emacs application I wrote. But it's more than that.
 
+Shel是个天才. Emacs是天才. 连非技术人员都爱Emacs. 我现在就是在Emacs里打这些文字. 我绝不情愿在任何其他地方打字. 这不只是关于让你的效率得到飞跃, 通过那些地球上其他地方找不到的快捷键和文本编辑功能. 我每分钟打一百三到一百四十个英文单词, 在Emacs里, 当我在写没有格式要求的文本的时候. 我测过这个时间速度. 自己写了一个测打字速度的Emacs应用. 但我想跟你说的不只是这个. 
+
 Emacs has the Quality Without a Name.
+
+Emacs有的是一种你叫不出名字来的品质. 
 
 We retired Mailman. That's because we have the Quality With a Name — namely, Suckiness. We suck. We couldn't find anyone who was good enough at Emacs-Lisp to make it work. Nowadays it would be easy; Amazon's filled up with Emacs Lisp hackers, but back then, CS Apps couldn't get the time of day from anyone, so they did what they could with what they had, and there weren't enough Emacs-Lisp folks. For a while, they even had Bob Glickstein on contract, the guy who wrote the O'Reilly "giraffe" book Writing Gnu Emacs Extensions, sitting there writing Gnu Emacs Extensions for Mailman in this little office in the Securities building.
 
+我们现在不用Mailman了. 那是因为我们有一种叫得出名字的品质&ndash;就是, 烂. 我们很烂. 我们(当时)找不到Emacs-Lisp足够牛的人把Mailman继续搞下去. 今天这应该不难了; 亚马逊现在到处都是Emacs Lisp的黑客. 但是在那时候, 客服部的人没法从别人那里得到帮助. 于是他们就用他们当时手头有的资源去搞这件事. 他们当时没有足够多的Emacs-Lisp的人. 有一段时间, 他们甚至找来Bob Glickstein当合同工, 那个给O'Reilly写了那本Gnu Emacs扩展的书的家伙, 坐在一个小办公室里给Emacs写Mailman的扩展. 
+
 CS Apps was Amazon's first 2-pizza team, you know. They're completely autonomous — then and now. Nobody talks to them, nobody helps them, they build everything themselves. They don't have web devs, they don't have support engineers, they don't have squat, except for rock-solid engineers and a mentoring culture. And that's all they've ever needed.
+
+客服应用部是Amazon的第一个两块比萨饼的团队(我也不知道什么意思, 看下文). 这个团队是完全自立的. 不管是那时还是现在. 没人跟他们说话, 没人帮他们. 没有枪, 没有炮, 他们自己造. 他们没有网页工程师, 没有支持工程师. 屁也没有. 有的只是一堆骨灰级的工程师和一个能带新人的文化. 这就是他们需要的一切了.
 
 But they had to retire Mailman. Alas. Alackaday. And I still get to hear about how much people miss it. At parties, even.
 
+但他们最终不得不让Mailman光荣退休. 妈哎. 而我呢今天还听到人们说他们是多么的怀念它. 甚至在派对上. 
+
 I think there may still be more Lisp hackers, per capita, in CS Apps than in any other group at Amazon. Not that they get to use it much, but as Eric Raymond said, even if you don't program in it much, learning Lisp will be a profound experience that will make you a better engineer for the rest of your life.
 
+我想今天按从头比例来说, 客服部仍然拥有比亚马逊任何其他团队更多的Lisp黑客. 可能他们用到Lisp的机会不多了, 但是Eric Raymond说过, 即使你很少用Lisp写程序, 学习Lisp会是意义深远的一个经历, 能让你下辈子都成为一个更好的工程师. 
+
 Religion isn't the opiate of the masses anymore, Karl. IDEs are.
-Java
+
+卡尔, 宗教现在已经不是大众的精神鸦片了. 现在鸦片是集成开发环境了. (卡尔.马克思. 这个人不知道的话应该打屁屁).
+
+= Java =
 
 Java is simultaneously the best and the worst thing that has happened to computing in the past 10 years.
 
+Java是过去的10年中计算行业里发生过的最好的同时也是最坏的事.
+
 On the one hand, Java frees you up from many mundane and error-prone details of C++ coding. No more bounds errors, no more core dumps. Exceptions thrown point you to the exact line of code that erred, and are right 99% of the time. Objects print themselves intelligently on demand. Etc., etc.
+
+一方面, Java把你从C++编程的很多枯燥易错的细节中解救出来了. 没有数组越界了, 没有core dump了. 抛出来的异常能让你精确定位到出错的那一行代码, 而且99%的时候都是正确的那一行出错了的代码. 对象们在需要的时候能智能地把它们自己打印出来. 等等等等. 
 
 On the other hand, in addition to being a language, a virtual machine, a huge set of class libraries, a security model, and a portable bytecode format, Java is a religion. So you can't trust anyone who loves it too much. It's a tricky business to hire good Java programmers.
 
+另一方面, 除了是一种语言, 一个虚拟机, 一个巨无霸的类库, 一个安全模型, 一个可移植的字节码格式, Java还是一个宗教. 邪教. 所以你不能太相信对它太虔诚的人. 想要招一个好的Java工程师是一项很有技术挑战的活.
+
 But Java really has been a big step forward for software engineering in general.
 
+但是总的来说, Java是软件工程史上的一大进步. 
+
 Going from C++ to Java isn't just changing syntax. It's a shocking paradigm shift that takes a while to sink in. It's like suddenly getting your own Executive Assistant. You know how VPs always seem to have all this time to be in meetings, and know how the company's running, and write cool documents, and stuff like that? VPs tend to forget that they're actually TWO full-time people: their self and their EA. Having an EA frees you up to think about the problems you need to solve; not having one forces you to spend half your time on mundane tasks. Switching to Java turns you into two programmers — one taking care of all this stuff that you no longer have to think much about, and another one focused on the problem domain. It's a staggering difference, and one you can get used to in a real hurry.
+
+从C++到Java不只是语法上的改变. 这是一种需要一段时间去好好体会的一种震撼性的世界观的转变. 这有点像突然你被配了一个执行助理. 
 
 As Jamie Zawinski said in his famous "java sucks" article: "First the good stuff: Java doesn't have free(). I have to admit right off that, after that, all else is gravy. That one point makes me able to forgive just about anything else, no matter how egregious. Given this one point, everything else in this document fades nearly into insignificance."
 
