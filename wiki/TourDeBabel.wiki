@@ -256,11 +256,10 @@ Python的作者，Guido Van Rossum，也在早期犯过一些很傻地技术错�
 
 What's the frost thing, you ask? Well, I used to have a lot of exceptionally mean stuff written here, but since Python's actually quite pleasant to work with (if you can overlook its warts), I no longer think it's such a great idea to bash on Pythonistas。The "frost thing" is just that they used to have a tendency to be a bit, well, frosty。Why?
 
-
-
 Because they were so tired of hearing about the whitespace thing！
 
 I think that's why Python never reached Perl's level of popularity, but maybe I'm just imagining things。
+
 Coda
 
 That was the ADJ article I really wanted to write。Or at least something like it。For some reason, though, my true feelings only seem to come out during insomniac attacks between 3am and 6am。Time for bed！2 hours 'til my next meeting。
@@ -268,7 +267,3 @@ That was the ADJ article I really wanted to write。Or at least something like i
 这才是我真正想给亚马逊开发者杂志写的文章。或者至少是这样的。出于某些原因，我的真感情好像只有在我凌晨三点到六点失眠的时候都会流露。该睡觉了！我下个会议再过两小时就开始了。
 
 (发布于2004年9月，小小的更新在3/28/2006)
-
-
-
-
