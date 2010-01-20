@@ -1,4 +1,4 @@
-#title [[http://steve.yegge.googlepages.com/tour-de-babel Tour De Babel]
+#title [http://steve.yegge.googlepages.com/tour-de-babel Tour De Babel]
 
 通天塔导游
 
