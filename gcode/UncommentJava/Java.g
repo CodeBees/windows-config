@@ -1010,6 +1010,8 @@ JavaIDDigit
        '\u1040'..'\u1049'
    ;
 
+CONDITIONAL: '#';
+
 WS  :  (' '|'\r'|'\t'|'\u000C'|'\n') 
     ;
 
